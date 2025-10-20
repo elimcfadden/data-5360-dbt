@@ -38,7 +38,7 @@ name,
   f.quantity,
   f.unit_price,
   f.line_amount
-from {{ ref('fact_sales') \}\} f
+FROM {{ ref('fact_sales') }} f
 left join {{ ref('oliver_dim_customer') \}\} c on f.customer_key = c.customer_key
 left join {{ ref('oliver_dim_employee') \}\} e on f.employee_key = e.employee_key
 left join {{ ref('oliver_dim_store') \}\}    s on f.store_key    = s.store_key
