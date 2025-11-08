@@ -1,4 +1,4 @@
-{{ config(materialized='table', schema='dw_oliver') }}
+{{ config(materialized='table', schema='oliver') }}
 
 select
   STORE_ID     as store_key,
@@ -7,5 +7,5 @@ select
   STREET,
   CITY,
   STATE
-from {{ source('oliver_landing','store') }}
+from ELIMCFADDEN.oliver_dw_source.store
 where coalesce(_FIVETRAN_DELETED, false) = false

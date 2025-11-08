@@ -1,4 +1,4 @@
-{{ config(materialized='table', schema='dw_oliver') }}
+{{ config(materialized='table', schema='oliver') }}
 
 select
   c.first_name  as customer_first_name,
@@ -11,52 +11,9 @@ select
   f.quantity,
   f.unit_price,
   f.line_amount
-from {{ ref('fact_sales') }} f
-left join {{ ref('oliver_dim_customer') }} c on f.customer_key = c.customer_key
-left join {{ ref('oliver_dim_employee') }} e on f.employee_key = e.employee_key
-left join {{ ref('oliver_dim_store') }}    s on f.store_key    = s.store_key
-
-
-
-
-
-
-
-
-
-
-
-models
-/
-oliver
-/
-sales.sql
-
-Save
-name,
-  d.date_day,
-  f.quantity,
-  f.unit_price,
-  f.line_amount
-FROM {{ ref('fact_sales') }} f
-left join {{ ref('oliver_dim_customer') \}\} c on f.customer_key = c.customer_key
-left join {{ ref('oliver_dim_employee') \}\} e on f.employee_key = e.employee_key
-left join {{ ref('oliver_dim_store') \}\}    s on f.store_key    = s.store_key
-left join {{ ref('oliver_dim_product') \}\}  p on f.product_key  = p.product_key
-left join {{ ref('oliver_dim_date') \}\}     d on f.date_key     = d.date_key
-
-9101112131415161781819206734512
-
-Preview
-
-Compile
-
-Build
-
-Format
-Results
-Code quality
-Compiled code
-Lineage$0
-left join {{ ref('oliver_dim_product') }}  p on f.product_key  = p.product_key
-left join {{ ref('oliver_dim_date') }}     d on f.date_key     = d.date_key
+from ELIMCFADDEN.dbt_emcfadden_oliver.fact_sales f
+left join ELIMCFADDEN.dbt_emcfadden_oliver.oliver_dim_customer c on f.customer_key = c.customer_key
+left join ELIMCFADDEN.dbt_emcfadden_oliver.oliver_dim_employee e on f.employee_key = e.employee_key
+left join ELIMCFADDEN.dbt_emcfadden_oliver.oliver_dim_store    s on f.store_key    = s.store_key
+left join ELIMCFADDEN.dbt_emcfadden_oliver.oliver_dim_product  p on f.product_key  = p.product_key
+left join ELIMCFADDEN.dbt_emcfadden_oliver.oliver_dim_date     d on f.date_key     = d.date_key

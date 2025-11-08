@@ -1,4 +1,4 @@
-{{ config(materialized='table', schema='dw_oliver') }}
+{{ config(materialized='table', schema='oliver') }}
 
 select
   CUSTOMER_ID  as customer_key,
@@ -8,5 +8,5 @@ select
   EMAIL,
   PHONE_NUMBER,
   STATE
-from {{ source('oliver_landing','customer') }}
+from ELIMCFADDEN.oliver_dw_source.customer
 where coalesce(_FIVETRAN_DELETED, false) = false

@@ -1,4 +1,4 @@
-{{ config(materialized='table', schema='dw_oliver') }}
+{{ config(materialized='table', schema='oliver') }}
 
 select
   EMPLOYEE_ID  as employee_key,
@@ -9,5 +9,5 @@ select
   PHONE_NUMBER,
   POSITION,
   HIRE_DATE
-from {{ source('oliver_landing','employee') }}
+from ELIMCFADDEN.oliver_dw_source.employee
 where coalesce(_FIVETRAN_DELETED, false) = false

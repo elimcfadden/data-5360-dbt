@@ -1,4 +1,4 @@
-{{ config(materialized='table', schema='dw_oliver') }}
+{{ config(materialized='table', schema='oliver') }}
 
 with cte_date as (
   select
